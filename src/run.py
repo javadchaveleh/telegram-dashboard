@@ -14,5 +14,5 @@ with st.expander("Statistics"):
         string_data = stringio.read()
         st.write(string_data)
 
-        data = json.loads(string_data)
-        st.json(data)
+#         data = json.loads(string_data)
+#         st.json(data)
