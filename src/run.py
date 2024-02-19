@@ -1,18 +1,23 @@
 import streamlit as st
-import pandas as pd
-from io import StringIO
 import numpy as np
-import json
+import seaborn as sns
 
-st.title(":zap:Telegram Dashboard")
-with st.expander("Statistics"):
-    uploaded_file = st.file_uploader("Choose a file")
-    if uploaded_file is not None:
-        # To convert to a string based IO:
-        stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        # To read file as string:
-        string_data = stringio.read()
-        st.write(string_data)
 
-#         data = json.loads(string_data)
-#         st.json(data)
+with st.sidebar.form('Login'):
+    username = st.text_input('Username')
+    password = st.text_input('Password', type='password')
+
+    submitted = st.form_submit_button('Login')
+    if submitted:
+        pass
+
+st.title(":zap: Telegram Dashboard")
+# banner = Image.open("./data/banner.jpg")
+# st.image(banner)
+with st.expander("User Profile"):
+    col1, col2 = st.columns(2)
+    col1.text_input('First Name:')
+    col2.text_input('Last Name:')
+    st.camera_input("Take a picture")
+
+
